@@ -1,7 +1,9 @@
+import { useNavigation } from "@react-navigation/native";
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Login() {
+const navigation = useNavigation();
   return (
     <View style={styles.container}>
         <Image 
@@ -32,36 +34,38 @@ export default function Login() {
             <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
 
-        <Text style={styles.footerText}>
-        Don't have an account?{' '}
-        <Text style={styles.signUpText}>Sign Up</Text>
-        </Text>
+        <View style={{ flexDirection: "row", marginTop: 20 }}>
+        <Text style={styles.footerText}>Don't have an account? </Text>
+        <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
+            <Text style={styles.signUpText}>Sign Up</Text>
+        </TouchableOpacity>
+        </View>
 
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+    container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
     backgroundColor: '#fff',
-  },
-  logo: {
+    },
+    logo: {
     width: 150,
     height: 150,
     marginBottom: 20,
     resizeMode: 'contain', 
-  },
-  title: {
+    },
+    title: {
     fontSize: 32,
     fontWeight: 'bold',
     marginBottom: 30,
     color: '#242424',
-  },
-  inputContainer: {
+    },
+    inputContainer: {
     flexDirection: 'row', 
     alignItems: 'center',
     borderWidth: 1,
@@ -71,36 +75,36 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     width: '100%',
     height: 50,
-  },
-  icon: {
+    },
+    icon: {
     marginRight: 10,
-  },
-  input: {
+    },
+    input: {
     flex: 1, 
-  },
-  button: {
+    },
+    button: {
     backgroundColor: '#007AFF',
     padding: 15,
     borderRadius: 50,
     width: '100%',
     alignItems: 'center',
     marginTop: 10,
-  },
-  buttonText: {
+    },
+    buttonText: {
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 16,
-  },
-  footerText: {
-  color: '#666',
-  fontSize: 14,
-  textAlign: 'center',
-  marginTop: 20,
-  },
+    },
+    footerText: {
+    color: '#666',
+    fontSize: 14,
+    textAlign: 'center',
 
-  signUpText: {
-  color: '#2c77e9',
-  fontWeight: 'bold',
-  },
+    },
+
+    signUpText: {
+    color: '#2c77e9',
+    fontWeight: 'bold',
+    },
 
 });
