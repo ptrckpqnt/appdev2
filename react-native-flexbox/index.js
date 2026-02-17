@@ -6,9 +6,10 @@ import { registerRootComponent } from 'expo';
 // import JustifyContentBasics from './components/JustifyContentBasics';
 // import AlignItemsLayout from './components/AlignItemsLayout';
 // import AlignSelfLayout from './components/AlignSelfLayout';
-import AlignContentLayout from './components/AlignContentLayout';
+// import AlignContentLayout from './components/AlignContentLayout';
+import FlexWrapLayout from './components/FlexWrapLayout';
 
 // registerRootComponent calls AppRegistry.registerComponent('main', () => App);
 // It also ensures that whether you load the app in Expo Go or in a native build,
 // the environment is set up appropriately
-registerRootComponent(AlignContentLayout);
+registerRootComponent(FlexWrapLayout);
