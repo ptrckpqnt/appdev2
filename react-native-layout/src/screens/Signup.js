@@ -48,9 +48,9 @@ export default function Signup() {
             />
         </View>
 
-        <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Sign Up</Text>
-        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Todo")} style={styles.button}>
+                    <Text style={styles.buttonText}>Signup</Text>
+                </TouchableOpacity>
 
         <View style={{ flexDirection: "row", marginTop: 20 }}>
             <Text style={styles.footerText}>Already have an account? </Text>
