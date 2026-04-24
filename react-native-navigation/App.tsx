@@ -15,10 +15,7 @@ function HomeScreen() {
       <Text>Home Screen</Text>
       <Button 
         onPress={() => {
-          navigation.navigate('Details', {
-            itemId: 86,
-            otherParam: 'anything you want here',
-          });
+          navigation.navigate('Details');
         }}
       >
         Go to Details
@@ -60,7 +57,10 @@ const RootStack = createNativeStackNavigator({
   initialRouteName: 'Home',
   screens: {
     Home: HomeScreen,
-    Details: DetailsScreen,
+    Details: {
+    screen: DetailsScreen,
+    initialParams: { itemId: 42 },
+    },
   },
 });
 
