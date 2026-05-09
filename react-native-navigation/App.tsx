@@ -25,13 +25,13 @@ function HomeScreen() {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
+
       <Button
-        onPress={
-          () =>
-            navigation.navigate('More', {
-              screen: 'Settings',
-              params: { userId: 'jane' },
-            })
+        onPress={() =>
+          navigation.navigate('More', {
+            screen: 'Settings',
+            params: { userId: 'jane' },
+          })
         }
       >
         Go to Settings
