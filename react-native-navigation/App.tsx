@@ -3,12 +3,19 @@ import { Text, View } from 'react-native';
 import {
   createStaticNavigation,
   useNavigation,
+  NavigationProp,
 } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Button } from '@react-navigation/elements';
 
-function SettingsScreen({ route }) {
+import type {
+  RootTabParamList,
+  MoreStackParamList,
+  SettingsProps,
+} from './types';
+
+function SettingsScreen({ route }: SettingsProps) {
   const { userId } = route.params;
 
   return (
@@ -20,12 +27,11 @@ function SettingsScreen({ route }) {
 }
 
 function HomeScreen() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<RootTabParamList>>();
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Text>Home Screen</Text>
-
       <Button
         onPress={() =>
           navigation.navigate('More', {
@@ -48,14 +54,14 @@ function ProfileScreen() {
   );
 }
 
-const MoreStack = createNativeStackNavigator({
+const MoreStack = createNativeStackNavigator<MoreStackParamList>({
   screens: {
     Settings: SettingsScreen,
     Profile: ProfileScreen,
   },
 });
 
-const RootTabs = createBottomTabNavigator({
+const RootTabs = createBottomTabNavigator<RootTabParamList>({
   screens: {
     Home: HomeScreen,
     More: MoreStack,
