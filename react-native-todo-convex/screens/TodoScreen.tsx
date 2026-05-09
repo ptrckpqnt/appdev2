@@ -55,22 +55,23 @@ const TodoScreen = () => {
         ]);
     };
 
-        const toggleTodo = (id: Id<"todos">, currentStatus: boolean) => {
-        toggleTodoMutation({ id, isCompleted: !currentStatus });
-    };
+        return (
+        <View style={styles.container}>
+            {/* 1. Header Section (Purple) */}
+            <View style={styles.header}>
+                <Text style={styles.title}>My Tasks</Text>
+                <View style={styles.searchContainer}>
+                    <Ionicons name="search-outline" size={20} color="#666" />
+                    <TextInput
+                        placeholder="Search todos..."
+                        style={styles.searchBar}
+                        value={searchQuery}
+                        onChangeText={setSearchQuery}
+                    />
+                </View>
+            </View>
 
-    const confirmDelete = (id: Id<"todos">) => {
-        Alert.alert("Delete Task", "Are you sure you want to remove this?", [
-            { text: "Cancel", style: "cancel" },
-            {
-                text: "Delete",
-                style: "destructive",
-                onPress: () => deleteTodoMutation({ id })
-            },
-        ]);
-    };
-
-                {/* 2. Body Section (White with Rounded Top) */}
+            {/* 2. Body Section (White with Rounded Top) */}
             <View style={styles.bodyContainer}>
                 <ScrollView showsVerticalScrollIndicator={false}>
                     {filterTodos.map(item => (
